@@ -28,6 +28,9 @@ Transactions are flagged as fraudulent based on the following conditions:
 
 **Example of a geographic anomaly**: If a user initiates a transaction in New York and another one in Tokyo within 30 minutes, the system will flag this as potentially fraudulent.
 
+## Postman Collection
+A **Postman collection** is provided in the root directory of the repository to help you quickly test the API. You can import it into your Postman application and use the predefined requests to interact with the system.
+
 ## API Endpoints
 
 ### Submit a Transaction
