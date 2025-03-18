@@ -6,7 +6,6 @@ import jakarta.persistence.Id;
 
 import java.math.BigDecimal;
 import java.time.Instant;
-import java.time.LocalDateTime;
 
 @Entity
 public class TransactionEntity {
@@ -14,18 +13,14 @@ public class TransactionEntity {
     @Id
     @Column(nullable = false, unique = true)
     private String transactionId;
-
     private String userId;
-
     private BigDecimal amount;
-
     private Instant timestamp;
     private Instant createdAt;
     private String countryIsoCode;
     private Double latCoord;
     private Double longCoord;
     private boolean isFraud;
-
 
     public String getTransactionId() {
         return transactionId;

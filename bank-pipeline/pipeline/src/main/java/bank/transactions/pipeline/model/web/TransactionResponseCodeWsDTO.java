@@ -16,7 +16,6 @@ public class TransactionResponseCodeWsDTO {
         return code;
     }
 
-
     public String getName() {
         return name;
     }
@@ -24,6 +23,4 @@ public class TransactionResponseCodeWsDTO {
     public String getMessage() {
         return message;
     }
-
-
 }

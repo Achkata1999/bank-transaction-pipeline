@@ -83,12 +83,10 @@ public class TransactionServiceImpl implements TransactionService {
         return countryCodes.size() > 2 || (countryCodes.size() == 2 && isNewCountry);
     }
 
-
     private boolean validateLastMinuteTransactions(String userId, Instant createdAt) {
         return transactionRepository.countTransactionsByPeriod(
                 userId, createdAt.minusSeconds(60)) >= 10;
     }
-
 
     private boolean validateDistance(TransactionWsDTO transactionWsDTO, Instant createdAt) {
         Instant thirtyMinutesAgo = createdAt.minusSeconds(30 * 60);
@@ -103,6 +101,12 @@ public class TransactionServiceImpl implements TransactionService {
         return false;
     }
 
+    /**
+     * This method calculates the distance between two points using the Haversine formula,
+     * which provides an approximate distance based on latitude and longitude.
+     * However, for more accurate geographic calculations, external libraries and
+     * advanced formulas can be used. This improvement can be considered in the future.
+     */
     private double haversine(double lat1, double lon1, double lat2, double lon2) {
         final int R = 6371;
         double latDistance = Math.toRadians(lat2 - lat1);
