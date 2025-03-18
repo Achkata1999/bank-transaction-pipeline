@@ -4,6 +4,7 @@ import bank.transactions.pipeline.enums.TransactionStatus;
 import bank.transactions.pipeline.model.web.TransactionResponseCodeWsDTO;
 import bank.transactions.pipeline.model.web.TransactionWsDTO;
 import bank.transactions.pipeline.service.TransactionService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/transaction")
 public class TransactionController {
 
-
     private final TransactionService transactionService;
 
     public TransactionController(TransactionService transactionService) {
@@ -20,7 +20,7 @@ public class TransactionController {
     }
 
     @PostMapping("/new")
-    public ResponseEntity<TransactionResponseCodeWsDTO> createTransaction(@RequestBody TransactionWsDTO transactionWsDTO) {
+    public ResponseEntity<TransactionResponseCodeWsDTO> createTransaction(@Valid @RequestBody TransactionWsDTO transactionWsDTO) {
         TransactionStatus transactionStatus = transactionService.createTransaction(transactionWsDTO);
 
         return new ResponseEntity<>(new TransactionResponseCodeWsDTO(transactionStatus.getCode(), transactionStatus.getDisplayName(), transactionStatus.getDescription()), getHttpStatus(transactionStatus));
