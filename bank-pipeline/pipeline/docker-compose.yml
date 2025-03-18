@@ -1,0 +1,36 @@
+services:
+  database:
+    image: mysql:8.0
+    container_name: bank_transactions_db
+    restart: always
+    environment:
+      MYSQL_DATABASE: bank-transactions
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      retries: 3
+      start_period: 5s
+      timeout: 5s
+
+  app:
+    build: .
+    environment:
+      MYSQL_HOST: database
+      MYSQL_PORT: 3306
+      MYSQL_DB_NAME: bank-transactions
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+    ports:
+      - "8082:8082"  # Application port
+      - "5005:5005"  # Debugger port
+    depends_on:
+      database:
+        condition: service_healthy
+
+volumes:
+  mysql_data:
