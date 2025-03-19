@@ -1,0 +1,199 @@
+{
+	"info": {
+		"_postman_id": "c9b23136-bb13-496c-8518-6645950f5b94",
+		"name": "Transactions",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21969734"
+	},
+	"item": [
+		{
+			"name": "BlackListedCountry",
+			"item": [
+				{
+					"name": "fromBlacklistedCountry",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\n    {\n        \"tran_id\": \"TXN001\",\n        \"user_id\": \"USER123\",\n        \"amount\": 1500.75,\n        \"timestamp\": \"2025-03-16T10:15:13.617Z\",\n        \"country\": \"RU\",\n        \"lat_coord\": 55.7558,\n        \"long_coord\": 37.6173\n    }\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/transaction/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"transaction",
+								"new"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MoreThan300KM",
+			"item": [
+				{
+					"name": "NEW YORK",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tran_id\": \"TXN002\",\n    \"user_id\": \"USER123\",\n    \"amount\": 1500.75,\n    \"timestamp\": \"2025-03-16T10:15:13.617Z\",\n    \"country\": \"US\",\n    \"lat_coord\": 40.7128,\n    \"long_coord\": -74.0060\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/json_api/current",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"json_api",
+								"current"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SOFIA",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tran_id\": \"TXN002\",\n    \"user_id\": \"USER123\",\n    \"amount\": 1500.75,\n    \"timestamp\": \"2025-03-16T10:15:13.617Z\",\n    \"country\": \"US\",\n    \"lat_coord\": 40.7128,\n    \"long_coord\": -74.0060\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/json_api/current",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"json_api",
+								"current"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ThreeDifferentCountries",
+			"item": [
+				{
+					"name": "Germany",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tran_id\": \"TXN002\",\n    \"user_id\": \"USER123\",\n    \"amount\": 1500.75,\n    \"timestamp\": \"2025-03-16T10:15:13.617Z\",\n    \"country\": \"US\",\n    \"lat_coord\": 40.7128,\n    \"long_coord\": -74.0060\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/json_api/current",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"json_api",
+								"current"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Czechia",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tran_id\": \"TXN005\",\n    \"user_id\": \"USER3\",\n    \"amount\": 1500.75,\n    \"timestamp\": \"2025-03-16T11:00:13.617Z\",\n    \"country\": \"CZ\",\n    \"lat_coord\": 50.0755,\n    \"long_coord\": 14.4378\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/transaction/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"transaction",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Austria",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tran_id\": \"TXN006\",\n    \"user_id\": \"USER3\",\n    \"amount\": 1500.75,\n    \"timestamp\": \"2025-03-16T11:45:13.617Z\",\n    \"country\": \"AT\",\n    \"lat_coord\": 47.2692,\n    \"long_coord\": 11.404\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/transaction/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"transaction",
+								"new"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
